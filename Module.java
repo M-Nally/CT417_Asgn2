@@ -2,14 +2,12 @@ import java.util.ArrayList;
 
 public class Module {
 	private String name, ID;
-	private ArrayList<Student> students;
-	private ArrayList<CourseProgramme> courses;
+	private ArrayList<Student> students = new ArrayList<Student>();
+	private ArrayList<CourseProgramme> courses = new ArrayList<CourseProgramme>();
 	
-	public Module(String name, String ID, ArrayList<Student> students, ArrayList<CourseProgramme> courses) {
+	public Module(String name, String ID) {
 		this.name = name;
 		this.ID = ID;
-		this.students = students;
-		this.courses = courses;
 	}
 	
 	public String getName() {
@@ -36,11 +34,19 @@ public class Module {
 		this.ID = ID;
 	}
 	
-	public void setStudents(ArrayList<Student> students) {
-		this.students = students;
+	public void joinStudent(Student student) {
+		this.students.add(student);
 	}
 	
-	public void setCourses(ArrayList<CourseProgramme> courses) {
-		this.courses = courses;
+	public void dropStudent(Student student) {
+		this.students.remove(student);
+	}
+	
+	public void joinCourse(CourseProgramme course) {
+		this.courses.add(course);
+	}
+	
+	public void dropCourse(CourseProgramme course) {
+		this.courses.remove(course);
 	}
 }

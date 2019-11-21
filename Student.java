@@ -1,20 +1,18 @@
 import java.util.ArrayList;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 public class Student {
 	private String name, username;
-	private Date dob;
+	private DateTime dob;
 	private int age, ID;
-	private ArrayList<Module> modules;
-	private ArrayList<CourseProgramme> courses;
+	private ArrayList<Module> modules = new ArrayList<Module>();
+	private ArrayList<CourseProgramme> courses = new ArrayList<CourseProgramme>();
 	
-	public Student(String name, int age, int ID, Date dob, ArrayList modules, ArrayList courses) {
+	public Student(String name, int age, int ID, DateTime dob) {
 		this.name = name;
 		this.age = age;
 		this.dob = dob;
 		this.ID = ID;
-		this.modules = modules;
-		this.courses = courses;
 	}
 	
 	public String getName() {
@@ -25,7 +23,7 @@ public class Student {
 		return age;
 	}
 	
-	public Date getDOB() {
+	public DateTime getDOB() {
 		return dob;
 	}
 	
@@ -49,7 +47,7 @@ public class Student {
 		this.age = age;
 	}
 	
-	public void setDOB(Date dob) {
+	public void setDOB(DateTime dob) {
 		this.dob = dob;
 	}
 	
@@ -57,13 +55,22 @@ public class Student {
 		this.ID = ID;
 	}
 	
-	public void setModules(ArrayList<Module> modules) {
-		this.modules = modules;
+	public void joinModule(Module module) {
+		this.modules.add(module);
 	}
 	
-	public void setCourses(ArrayList<CourseProgramme> courses) {
-		this.courses = courses;
+	public void joinCourse(CourseProgramme course) {
+		this.courses.add(course);
 	}
+	
+	public void dropModule(Module module) {
+		this.modules.remove(module);
+	}
+	
+	public void dropCourse(CourseProgramme course) {
+		this.courses.remove(course);
+	}
+	
 	
 	public String getUsername() {
 		if (this.username == null) {

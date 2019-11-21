@@ -1,13 +1,13 @@
 import java.util.ArrayList;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 public class CourseProgramme {
 	private String name;
-	private ArrayList<Student> students;
-	private ArrayList<Module> modules;
-	private Date startDate, endDate;
+	private ArrayList<Student> students = new ArrayList<Student>();
+	private ArrayList<Module> modules = new ArrayList<Module>();
+	private DateTime startDate, endDate;
 	
-	public CourseProgramme(String name, ArrayList<Student> students, ArrayList<Module> modules, Date startDate, Date endDate) {
+	public CourseProgramme(String name, DateTime startDate, DateTime endDate) {
 		this.name = name;
 		this.students = students;
 		this.modules = modules;
@@ -27,31 +27,39 @@ public class CourseProgramme {
 		return modules;
 	}
 	
-	public Date getStartDate() {
+	public DateTime getStartDate() {
 		return startDate;
 	}
 	
-	public Date getEndDate() {
+	public DateTime getEndDate() {
 		return endDate;
 	}
 	
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public void setStudents(ArrayList<Student> students) {
-		this.students = students;
+
+	public void joinStudent(Student student) {
+		this.students.add(student);
 	}
 	
-	public void setModules(ArrayList<Module> modules) {
-		this.modules = modules;
+	public void dropStudent(Student student) {
+		this.students.remove(student);
 	}
 	
-	public void setStartDate(Date startDate) {
+	
+	public void joinModule(Module module) {
+		this.modules.add(module);
+	}
+	
+	public void dropModule(Module module) {
+		this.modules.remove(module);
+	}
+	public void setStartDate(DateTime startDate) {
 		this.startDate = startDate;
 	}
 	
-	public void setEndDate(Date endDate) {
+	public void setEndDate(DateTime endDate) {
 		this.endDate = endDate;
 	}
 	
