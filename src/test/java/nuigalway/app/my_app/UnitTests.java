@@ -1,3 +1,6 @@
+package nuigalway.app.my_app;
+
+
 import junit.framework.TestCase;
 import org.joda.time.DateTime;
 import java.util.ArrayList;
